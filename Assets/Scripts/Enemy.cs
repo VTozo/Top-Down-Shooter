@@ -21,11 +21,13 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         life--;
-        print(life / maxLife);
 
         if(life <= 0)
         {
-            Destroy(gameObject, 0.1f);
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            Destroy(gameObject, 0.5f);
         }
         else if ((life / maxLife) <= (1f / 3f))
         {
@@ -37,7 +39,6 @@ public class Enemy : MonoBehaviour
         }
         
         
-
         if (collision.gameObject.tag != "Player")
         {
             Destroy(collision.gameObject);
