@@ -7,26 +7,49 @@ public class Enemy : MonoBehaviour
 {
     public float maxLife;
     private float life;
+    private Transform target;
+    public float movementSpeed;
 
     void Start()
     {
         life = maxLife;
+        target = GameObject.Find("Player").transform;
+
+        AudioSource audio = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        
+        transform.LookAt(target.transform);
+    }
+
+    private void FixedUpdate()
+    {
+        transform.Translate(Vector3.forward * movementSpeed);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        life--;
 
-        if(life <= 0)
+        if (collision.gameObject.tag == "Player")
         {
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.Play();
+            SceneManager.LoadScene("GameOver");
+        }
+        else if (collision.gameObject.tag != "Enemy")
+        {
+            life--;
+        }
+
+        if (life <= 0)
+        {
+            // Se o audio não estiver tocando ainda
+            // Verificação previne que toque mais de uma vez enquanto o objeto é destruído
+            if (!GetComponent<AudioSource>().isPlaying)
+                GetComponent<AudioSource>().Play();
+
+            // Delay para destruir o objeto, para tocar o audio até o fim
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            FindObjectOfType<GameManager>().changeScore(100);
             Destroy(gameObject, 0.5f);
         }
         else if ((life / maxLife) <= (1f / 3f))
@@ -39,14 +62,7 @@ public class Enemy : MonoBehaviour
         }
         
         
-        if (collision.gameObject.tag != "Player")
-        {
-            Destroy(collision.gameObject);
-        }
-        else
-        {
-            SceneManager.LoadScene("GameOver");
-        }
         
+
     }
 }

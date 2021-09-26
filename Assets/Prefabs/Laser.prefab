@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1495460370669200123}
   - component: {fileID: -1797683994129767944}
   - component: {fileID: -2149185439081326769}
+  - component: {fileID: 232238470397309053}
   m_Layer: 6
   m_Name: Laser
   m_TagString: Untagged
@@ -319,3 +320,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &232238470397309053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227132902145702364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924493d429f62094d83df184a646b486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 1

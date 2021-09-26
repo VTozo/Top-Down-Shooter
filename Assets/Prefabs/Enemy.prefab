@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 1300724901}
   - component: {fileID: 9169380286799502314}
   m_Layer: 0
-  m_Name: IceBlades
-  m_TagString: Untagged
+  m_Name: Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLife: 3
+  movementSpeed: 0.2
 --- !u!82 &9169380286799502314
 AudioSource:
   m_ObjectHideFlags: 0
