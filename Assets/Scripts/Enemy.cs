@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private float life;
     private Transform target;
     public float movementSpeed;
+    public GameObject explosion;
 
     void Start()
     {
@@ -46,6 +47,9 @@ public class Enemy : MonoBehaviour
             // Verificação previne que toque mais de uma vez enquanto o objeto é destruído
             if (!GetComponent<AudioSource>().isPlaying)
                 GetComponent<AudioSource>().Play();
+
+            // Instancia o efeito de explosão
+            Instantiate(explosion, transform.position, transform.rotation);
 
             // Delay para destruir o objeto, para tocar o audio até o fim
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
