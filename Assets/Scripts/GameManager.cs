@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.8f);
 
             float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
             Vector3 delta = new Vector3(Mathf.Cos(angle) * enemySpawnDistance, 0, Mathf.Sin(angle) * enemySpawnDistance);
