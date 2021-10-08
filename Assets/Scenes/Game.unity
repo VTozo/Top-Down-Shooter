@@ -426,7 +426,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990060710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 9.49e-13}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000022299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1945842181}
@@ -434,8 +434,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 142.86298, y: -11.799988}
-  m_SizeDelta: {x: 163.027, y: 16.742}
+  m_AnchoredPosition: {x: 296.09686, y: -26.974}
+  m_SizeDelta: {x: 323.34, y: 47.091}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990060712
 MonoBehaviour:
@@ -459,10 +459,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -505,7 +505,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343538811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1945842181}
@@ -513,8 +513,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 39.82782, y: -11.799988}
-  m_SizeDelta: {x: 56.95703, y: 16.742004}
+  m_AnchoredPosition: {x: 67.502, y: -26.974}
+  m_SizeDelta: {x: 112.304, y: 47.091}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1343538813
 MonoBehaviour:
@@ -538,10 +538,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -656,7 +656,9 @@ MonoBehaviour:
   scoreText: {fileID: 990060712}
   player: {fileID: 601882657}
   enemy: {fileID: 1300724901, guid: 445ae37f24e704de890bbfda1fa7a39c, type: 3}
-  distance: 150
+  powerUp: {fileID: 5537546968774243940, guid: 2d873aa1d5a3488478e8796adb44ad7f, type: 3}
+  enemySpawnDistance: 100
+  powerUpSpawnDistance: 50
 --- !u!4 &1723329838
 Transform:
   m_ObjectHideFlags: 0

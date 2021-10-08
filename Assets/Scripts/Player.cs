@@ -10,16 +10,25 @@ public class Player: MonoBehaviour
     public Transform shotSpawnPoint;
     public float shotSpeed;
     public Camera cam;
+    private bool powerUp;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        powerUp = false;
     }
 
     private void Update()
     {
-        // Atirar
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        // Atirar sem power up
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !powerUp)
+        {
+            GameObject newBullet = Instantiate(objectToClone, shotSpawnPoint.position, shotSpawnPoint.rotation);
+            newBullet.GetComponent<Rigidbody>().AddForce(shotSpawnPoint.forward * shotSpeed);
+        }
+
+        // Atirar com power up
+        if (Input.GetKey(KeyCode.Mouse0) && powerUp)
         {
             GameObject newBullet = Instantiate(objectToClone, shotSpawnPoint.position, shotSpawnPoint.rotation);
             newBullet.GetComponent<Rigidbody>().AddForce(shotSpawnPoint.forward * shotSpeed);
@@ -41,5 +50,17 @@ public class Player: MonoBehaviour
         float vAxis = Input.GetAxis("Vertical");
         Vector3 movementDir = new Vector3(hAxis, 0, vAxis);
         rb.AddForce(movementDir * movementSpeed);
+    }
+
+    public void PowerUp()
+    {
+        powerUp = true;
+        StartCoroutine(PowerUpTimer());
+    }
+
+    IEnumerator PowerUpTimer()
+    {
+        yield return new WaitForSeconds(2);
+        powerUp = false;
     }
 }
