@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player: MonoBehaviour
 {
     Rigidbody rb;
+    AudioSource laserSound;
     public float movementSpeed;
     public GameObject objectToClone;
     public Transform shotSpawnPoint;
@@ -15,11 +16,18 @@ public class Player: MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        laserSound = GetComponent<AudioSource>();
         powerUp = false;
     }
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            laserSound.Play();
+        }
+
         // Atirar sem power up
         if (Input.GetKeyDown(KeyCode.Mouse0) && !powerUp)
         {
