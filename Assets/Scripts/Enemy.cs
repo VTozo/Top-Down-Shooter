@@ -57,6 +57,7 @@ public class Enemy : MonoBehaviour
 
             // Delay para destruir o objeto, para tocar o audio até o fim
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            Destroy(GetComponent<SphereCollider>());
             FindObjectOfType<GameManager>().changeScore(100);
             Destroy(gameObject, 0.5f);
         }
